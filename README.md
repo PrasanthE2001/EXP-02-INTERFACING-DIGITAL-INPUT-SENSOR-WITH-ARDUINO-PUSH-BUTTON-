@@ -1,10 +1,6 @@
 # EXP-01-INTERFACING-DIGITAL-INPUT-SENSOR-WITH-ARDUINO-PUSH-BUTTON
 
-AIM:
-
-To interface a digital input (push button) and blink and LED upon activation.
-
-
+AIM:  To interface a digital input (push button) and blink and LED upon activation.
 COMPONENTS REQUIRED:
 1.	1 KΩ Resistor 
 2.	Arduino Uno 
@@ -12,12 +8,8 @@ COMPONENTS REQUIRED:
 4.	USB Interfacing cable 
 5.	Jumper wires 
 6.	LED of choice 
-
-
 THEORY :
-
 Arduino UNO
-
  	  The Uno is a microcontroller board based on the ATmega328P. It has 14 digital input/output pins (of which 6 can be used as PWM outputs), 6 analog inputs, a 16 MHz quartz crystal, a USB connection, a power jack, an ICSP header and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with a AC-to-DC adapter or battery to get started.
 	Technical specifications of Arduino UNO :
 Microcontroller	ATmega168/328
@@ -33,24 +25,18 @@ Flash Memory	16 KB (ATmega168) or 32 KB (ATmega328) of which 2 KB used by boot l
 SRAM	1 KB (ATmega168) or 2 KB (ATmega328)
 EEPROM	512 bytes (ATmega168) or 1 KB (ATmega328)
 Clock Speed	16 MHz
-
 PIN DIAGRAM FOR ATMEGA 328
-
-
+ 
 ![image](https://user-images.githubusercontent.com/36288975/163530394-115baee4-7ed1-49fe-9cce-d7b625e11e85.png)
 
-
 FIGURE-01
-
-
 ![image](https://user-images.githubusercontent.com/36288975/163530431-4d390e98-0942-42d8-95b8-f57d348e6ad8.png)
 
 
 
-
-
-PROCEDURE : Open tinker cad account 
-
+FIGURE-02
+PROCEDURE 
+ Open tinker cad account 
 1.	Select Arduino uno , bread board , digital input and digital output 
 2.	Connect the circuit as given in the figure 
 3.	Develop the program and compile it for any errors 
@@ -61,7 +47,7 @@ PROCEDURE : Open tinker cad account
 
 
 
-FIGURE-02
+
 
 
 CIRCUIT DIAGRAM 
@@ -74,52 +60,50 @@ CIRCUIT DIAGRAM
 
 
 
-BEFORE SIMULATION :
+FIGURE -03
 
-![robe1op1](https://user-images.githubusercontent.com/114572171/201258209-bb1b7f9d-32ab-461a-8494-5676a9b7dbb1.png)
 
 
 
 
 PROGRAM 
-``` 
-
- // C++ code
-
-int ledpin=4;
-int pushbutton=2;
-int val=0;
+```
+ int buttonstate=0;
 void setup()
 {
-  pinMode(ledpin, OUTPUT);
-  pinMode(pushbutton, OUTPUT);
+  pinMode(2,INPUT);
+  pinMode(13, OUTPUT);
 }
 
 void loop()
 {
-  val = digitalRead(pushbutton);
-  if(val==0)
+  buttonstate=digitalRead(2);
+  if(buttonstate==HIGH)
   {
-    digitalWrite(ledpin,HIGH);
+    digitalWrite(13,HIGH);
   }
   else
   {
-    digitalWrite(ledpin,LOW);
+    digitalWrite(13,LOW);
   }
+  delay(10);
 }
+
+```
  
- ```
+ 
+ 
  
 
 
 
 Output of the simulation :
 
+Before simulation:
+![Screenshot 2023-04-24 173230](https://user-images.githubusercontent.com/119476792/233993521-64364d64-e494-4cab-8e16-7382a01c334c.png)
 
+After simulation:
+![Screenshot 2023-04-24 173254](https://user-images.githubusercontent.com/119476792/233993599-14601245-2b6a-4d22-bd0f-f773e4c0fd08.png)
 
-![robe1op2](https://user-images.githubusercontent.com/114572171/201258314-a7988f15-bb32-433c-8358-1f2c51bd313c.png)
-
-RESULT :
-
-Thus, we have interfaced a digital input (push button) and blink of LED upon activation.
-
+Result:
+      Arduino uno analog input functioning is learned and interfaced with digital input switch.
